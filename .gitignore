@@ -1,0 +1,12 @@
+*.pyc
+*.o
+*.ld
+*.elf
+*.map
+*.lst
+*.lss
+*.bin
+*.hex
+bmptk_fixed_size_stack.c
+__pycache__
+~*
