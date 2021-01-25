@@ -2,7 +2,7 @@
 
 # MicroPython - WORK IN PROGRESS
 
-2021-01-25
+updated 2021-01-25
 
 ## Intro
 
@@ -84,7 +84,8 @@ make ttgo_watch
 For some reason this works on Linux, but it doesn't work reliably on windows, 
 maybe because the USB-serial driver doesn't reset the target properly.
 
-## Using Thonny
+## Thonny
+
 Connect your target that runs MicroPython via USB.
 Start Thonny.
 Under Run->Select interpreter you can select the Python
@@ -118,6 +119,7 @@ print( "Hello world\n" )
 
 Most boards have an on-board LED, but the pin to which the LED is 
 connected depends on the board.
+The code below uses pin 2.
 
 ```Python
 import machine, time
@@ -129,18 +131,51 @@ while True:
   time.sleep( 0.5 )
 ```
 
-### 
+### Show visible access points
+
+```Python
+import network, socket
+
+sta = network.WLAN( network.STA_IF )
+sta.active( True )
+print( "network config %s\n" % str( sta.ifconfig() ) )
+print( "visible access points:" )
+for ap in sta.scan():
+   print( "   %s" % str( ap ) )
+```
+
+### Serve a web page
+
+```Python
+```
+
+### Read a web page
+
+```Python
+```
+
+### TTGO watch : 
+
+```Python
+```
+
+
 
 ## Links
 - [Thonny](https://thonny.org)
 - [esptool](https://github.com/espressif/esptool)
 - [a list of MicroPython libraries](https://awesome-micropython.com)
-- [generic MicroPython images](https://micropython.org/download/all)       s
+- [generic MicroPython images](https://micropython.org/download/all)
 - [Lilygo T-WATCH-2020 image](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython)
 
 ==> https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython
 https://gitlab.com/mooond/t-watch2020-esp32-with-micropython
+updated py file for moond: https://github.com/jhfoo/t-watch-2020-micropython
 e.g. ESP-WROOM-32 should be DIO
+
+https://github.com/jhfoo/t-watch-2020-micropython
+https://github.com/scientifichackers/ampy
+https://github.com/dhylands/rshell
 
 interfaces:
 https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython/blob/master/ports/esp32/boards/LILYGO_T_WATCH_2020_V1/modules/ttgo.py
