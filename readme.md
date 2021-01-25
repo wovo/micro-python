@@ -2,6 +2,8 @@
 
 # MicroPython - WORK IN PROGRESS
 
+2021-01-25
+
 ## Intro
 
 [MicroPython]() is a Python interpreter running on a micro-controller.
@@ -24,7 +26,7 @@ for this purpose.
 There are Thonny installers for Windows, Linux and Mac,
 and even one that runs directly on a Python interpreter.
 
-## EPS8266, ESP32 TTGO Watch
+## EPS8266, ESP32, TTGO Watch
 
 MicroPython for the ESP83266 and ESP32 is an easy way to
 create an small WiFi-connected system.
