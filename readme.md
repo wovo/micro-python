@@ -1,6 +1,6 @@
 ![](images/micro-python.png)
 
-# MicroPython
+# MicroPython - WORK IN PROGRESS
 
 ## Intro
 
@@ -38,7 +38,7 @@ Use *the one from this
 others might not (always) work.
 
 MicroPython images can be found at
-[this page](https://micropython.org/download/all/).
+[this page](https://micropython.org/download/all).
 
 Before downloading, you must erase the Flash. 
 The commands are:
@@ -131,9 +131,9 @@ while True:
 
 ## Links
 - [Thonny](https://thonny.org)
-- [esptool](https://github.com/espressif/esptool)*,
+- [esptool](https://github.com/espressif/esptool)
 - [a list of MicroPython libraries](https://awesome-micropython.com)
-- [generic MicroPython images](https://micropython.org/download/all/)
+- [generic MicroPython images](https://micropython.org/download/all)       s
 - [Lilygo T-WATCH-2020 image](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython)
 
 ==> https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython
