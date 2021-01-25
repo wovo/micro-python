@@ -56,18 +56,23 @@ python esptool.py --chip esp32 --port <PORT> write_flash -z 0x1000 0x1000 <IMAGE
 ```
 
 For targets that have specific peripherals there are specialized
-...
+MicroPython images, that have some of the drivers for the
+peripherals built-in. 
+This is an image for the 
+[Lilygo T-WATCH-2020](gitlab.com/mooond/t-watch2020-esp32-with-micropython)
 
 The github repository you are reading now includes the
 epstool and ESP8266 and ESP32 images.
 To flash one, assuming you are on Linux and in the root of
-the cloned repository, you can use one of the commands
+the cloned repository, you can use one of the commands:
 
 ```bash
 make eps8266
 make esp32
-make ttgo-watch
+make ttgo_watch
 ```
+
+For some reason this doesn't work reliably on windows.
 
 ## Using Thonny
 
@@ -120,7 +125,15 @@ while True:
 - [Thonny]{https://thonny.org)
 - [esptool]{https://github.com/espressif/esptool)*,
 - [a list of MicroPython libraries](https://awesome-micropython.com)
-- [MicroPython images])https://micropython.org/download/all/)
+- [generic MicroPython images])https://micropython.org/download/all/)
+- [Lilygo T-WATCH-2020 image](gitlab.com/mooond/t-watch2020-esp32-with-micropython)
+
+==> https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython
+https://gitlab.com/mooond/t-watch2020-esp32-with-micropython
+e.g. ESP-WROOM-32 should be DIO
+
+interfaces:
+https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython/blob/master/ports/esp32/boards/LILYGO_T_WATCH_2020_V1/modules/ttgo.py
 
 ## todo
 - notes on support for hardware features
@@ -128,5 +141,8 @@ while True:
 - ttgo image
 - test makefile
 - note need to press key
+- pyserial might be needed for esptool
+- seems not to work on windows??
+- find serial port does not work on linux :(
 
 
