@@ -32,9 +32,9 @@ else
    PORTSPEC ?= --port $(PORT)
 endif
 
-.PHONY: esp8266, esp32, ttgo_watch
-.PHONY: erase_esp8266, erase_esp32
-.PHONY: download_esp8266, download_esp32
+.PHONY: esp8266 esp32 ttgo_watch
+.PHONY: erase_esp8266 erase_esp32
+.PHONY: download_esp8266 download_esp32
 
 erase_esp8266:
 	@echo "##### erase ESP8266 #####"
