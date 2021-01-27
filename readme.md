@@ -2,7 +2,7 @@
 
 # MicroPython - WORK IN PROGRESS
 
-updated 2021-01-25
+updated 2021-01-27
 
 ## Intro
 
@@ -14,9 +14,10 @@ If you don't screw up, you will have to do this only once.
 Instructions for a few common ones can be found below.
 
 To use the MicroPython interpreter on your micro-controller
-you need a connection to it, usually a serial-over-USB connection.
-For this MicroPython supports a protocol called REPL 
-(Read-Execute-Print-Loop) that you can use directly, 
+you need a connection to it, usually serial-over-USB.
+For this MicroPython supports the REPL 
+(Read-Execute-Print-Loop) protocol.
+Yiou can use this directly, 
 like you would use as a Python interpreter prompt.
 But it is much easier to use a Python IDE that can connects
 to the micro-controller.
@@ -26,7 +27,7 @@ for this purpose.
 There are Thonny installers for Windows, Linux and Mac,
 and even one that runs directly on a Python interpreter.
 
-## EPS8266, ESP32, TTGO Watch
+## EPS8266, ESP32
 
 MicroPython for the ESP83266 and ESP32 is an easy way to
 create an small WiFi-connected system.
@@ -63,25 +64,18 @@ esptool scan all your ports.
 For Linux: after an erase_flash the target re-connects, 
 which on my system caused it to switch to a different */dev/ttyUSBx*.
 
-For targets that have specific peripherals there are specialized
-MicroPython images, with have some of the drivers for the
-peripherals built-in. 
-This is an image for the 
-[Lilygo T-WATCH-2020](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython)
-
 The github repository you are reading now includes the
-epstool, generic images for ESP8266 and ESP32, and 
-a specific image for the T-WATCH-2020.
+epstool, and generic images for ESP8266 and ESP32.
 To flash one, assuming you are on Linux and in the root of
 the cloned repository, you can use one of the commands:
 
 ```bash
 make eps8266
 make esp32
-make ttgo_watch
 ```
 
-For some reason this works on Linux, but it doesn't work reliably on windows, 
+For some reason this works perfecly for me on (Ubuntu) Linux, 
+but it doesn't work reliably on windows, 
 maybe because the USB-serial driver doesn't reset the target properly.
 
 ## Thonny
@@ -105,7 +99,7 @@ When you run a file that is stored on your computer
 on the MicroPython interpreter, it is automatically download
 first, but note that any files you might import are not.
 
-## Examples
+## Generic xxamples
 
 ### Hello
 
@@ -154,11 +148,20 @@ for ap in sta.scan():
 ```Python
 ```
 
-### TTGO watch : 
+## Lilygo T-WATCH-2020
+
+For targets that have specific peripherals there are specialized
+MicroPython images, with have some of the drivers for the
+peripherals built-in. 
+So far I haven't found a stable one for this watch that supports all functions.
+The watch subdirectorty has a file watch.py 
+in which I gathered simple interfaces that I found.
+The following examples show these.
+
+### Accelerometer
 
 ```Python
 ```
-
 
 
 ## Links
@@ -166,16 +169,15 @@ for ap in sta.scan():
 - [esptool](https://github.com/espressif/esptool)
 - [a list of MicroPython libraries](https://awesome-micropython.com)
 - [generic MicroPython images](https://micropython.org/download/all)
-- [Lilygo T-WATCH-2020 image](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython)
+- [Lilygo T-WATCH-2020 image 1](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython)
+- [Lilygo T-WATCH-2020 image 2](https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython)
+- [ampy](https://github.com/scientifichackers/ampy)
+- [rshell](https://github.com/dhylands/rshell)
 
-==> https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython
-https://gitlab.com/mooond/t-watch2020-esp32-with-micropython
 updated py file for moond: https://github.com/jhfoo/t-watch-2020-micropython
 e.g. ESP-WROOM-32 should be DIO
 
 https://github.com/jhfoo/t-watch-2020-micropython
-https://github.com/scientifichackers/ampy
-https://github.com/dhylands/rshell
 
 interfaces:
 https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython/blob/master/ports/esp32/boards/LILYGO_T_WATCH_2020_V1/modules/ttgo.py
@@ -184,7 +186,6 @@ https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython/blob/master/po
 - notes on support for hardware features
 - more examples
 - ttgo image
-- test makefile
 - note need to press key
 - pyserial might be needed for esptool
 - seems not to work on windows??
