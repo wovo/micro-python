@@ -52,8 +52,8 @@ download_esp32:
 	@echo "##### download generic ESP32 #####"
 	$(ESPTOOL) --chip esp32 $(PORTSPEC) write_flash -z 0x1000 $(ESP32_GENERIC)
 
-esp8266: erase_esp8266, download_esp8266
+esp8266: erase_esp8266 download_esp8266
 
-esp32: erase_esp32, download_esp32
+esp32: erase_esp32 download_esp32
 
 
