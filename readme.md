@@ -99,6 +99,9 @@ When you run a file that is stored on your computer
 on the MicroPython interpreter, it is automatically download
 first, but note that any files you might import are not.
 
+I found Thonny with REPL to be mostly woprking, but sometimes
+it gets into an error-message loop.
+
 ## Generic xxamples
 
 ### Hello
@@ -155,13 +158,61 @@ MicroPython images, with have some of the drivers for the
 peripherals built-in. 
 So far I haven't found a stable one for this watch that supports all functions.
 The watch subdirectorty has a file watch.py 
-in which I gathered simple interfaces that I found.
+in which I gathered interface code that I found,
+most on 
+[this page](https://nick.zoic.org/art/lilygo-ttgo-t-watch-2020/),
+the lcd is from
+[here](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython).
 The following examples show these.
+
+### Buzzer
+
+```Python
+import watch
+
+b = watch.buzzer()
+b.buzz( 0.2, 0.3 )
+b.buzz( 0.2, 0.3 )
+b.buzz( 0.2, 0.3 )
+b.buzz( 0.8 )
+```
 
 ### Accelerometer
 
 ```Python
+import watch, time
+
+a = watch.accelerometer()
+while True:
+    print( "%d %d %d" % a.read() )
+    time.sleep( 0.1 )
 ```
+
+### Real Time Clock
+
+```Python
+import watch, time
+
+r = watch.rtc()
+while True:
+    print( "%02d:%02d:%02d" % r.read() )
+    time.sleep( 1 )
+```
+### Touch
+
+```Python
+import watch, time
+
+print( "touch demo - touch the display!" )
+t = watch.touch()
+while True:
+    v = t.read()
+    if v:
+        print( v )
+    time.sleep( 0.1 )
+```
+
+
 
 
 ## Links
@@ -173,6 +224,7 @@ The following examples show these.
 - [Lilygo T-WATCH-2020 image 2](https://github.com/OPHoperHPO/lilygo-ttgo-twatch-2020-micropython)
 - [ampy](https://github.com/scientifichackers/ampy)
 - [rshell](https://github.com/dhylands/rshell)
+- [T-WATCH-20202 python low-level eaxmples](https://nick.zoic.org/art/lilygo-ttgo-t-watch-2020/)
 
 updated py file for moond: https://github.com/jhfoo/t-watch-2020-micropython
 e.g. ESP-WROOM-32 should be DIO
