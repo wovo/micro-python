@@ -2,7 +2,7 @@
 #
 # Lilygo T-WATCH-2020
 #
-# www.github.com/wvo/micro-poython
+# www.github.com/wovo/micro-poython
 #
 # This is a gathering of various fragments, each under their
 # own license.
@@ -937,12 +937,12 @@ class PMU(object):
 #
 # LCD
 #
-# =============================================================================
-
 # this is from: https://github.com/devbis/st7789py_mpy
 # (seems to be under MIT license)
+#
+# =============================================================================
 
-# commands
+# chip commands
 ST77XX_NOP = const(0x00)
 ST77XX_SWRESET = const(0x01)
 ST77XX_RDDID = const(0x04)
