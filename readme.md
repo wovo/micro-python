@@ -165,6 +165,9 @@ the lcd is from
 [here](https://gitlab.com/mooond/t-watch2020-esp32-with-micropython).
 The following examples show these.
 
+Other T-WATCH-2020 links:
+- https://twatchbuilder.com/
+
 ### Buzzer
 
 ```Python
