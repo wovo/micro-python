@@ -1,0 +1,2 @@
+python.exe esptool/esptool.py --chip esp8266 --port COM4 erase_flash
+python.exe esptool/esptool.py --chip esp8266 --port COM4 write_flash --flash_mode dio --flash_size detect 0x0 images/esp8266-1m-20200902-v1.13.bin

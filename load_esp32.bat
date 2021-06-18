@@ -1,0 +1,2 @@
+"C:\Program Files (x86)\Python36\python" esptool/esptool.py --chip esp32 --port COM4 erase_flash
+"C:\Program Files (x86)\Python36\python" esptool/esptool.py --chip esp32 --port COM4 write_flash -z 0x1000 images/esp32-idf4-20200902-v1.13.bin
